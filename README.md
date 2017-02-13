@@ -9,25 +9,13 @@ plugin manager and [Powerlevel9k](https://github.com/bhilburn/powerlevel9k) them
 
 ## Installation
 
-In order to use this theme, you have to install Antigen first.
+To use this theme, just clone the repository and run the installation script.
 
 ```shell
-cd ~
-mkdir .antigen
-curl https://cdn.rawgit.com/zsh-users/antigen/v1.4.0/bin/antigen.zsh > .antigen/antigen.zsh
-```
-
-Then, download and install the powerline patched font.
-
-```shell
-curl https://github.com/CCheminaud/coco-dos/raw/master/fonts/SourceCodePro%2BPowerline%2BAwesome%2BRegular.ttf > .fonts/SourceCodePro-Powerline-Awesome-Regular.ttf
-fc-cache -fv
-```
-
-Last step, download the `.zshrc` in your home directory.
-
-```shell
-curl https://github.com/CCheminaud/coco-dos/raw/master/.zshrc
+git clone https://github.com/CCheminaud/coco-dos.git
+cd coco-dos
+chmod +x install.sh
+./install.sh
 ```
 
 With Antigen, all plugins and themes will be installed the next time ZSH is launched !
