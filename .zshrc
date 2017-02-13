@@ -96,6 +96,8 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # Remember aliases...
 antigen bundle djui/alias-tips
 
+# Theme
+export TERM="xterm-256color"
 antigen theme bhilburn/powerlevel9k powerlevel9k
 antigen apply
 
