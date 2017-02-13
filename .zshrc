@@ -73,7 +73,7 @@ POWERLEVEL9K_STATUS_VERBOSE=false
 # time segment
 POWERLEVEL9K_TIME_BACKGROUND='234'
 POWERLEVEL9K_TIME_FOREGROUND='254'
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S \ue12e}"
+POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S} \ue12e"
 
 # -- Antigen ---------------------------------------------------------------- #
 
