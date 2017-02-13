@@ -93,6 +93,9 @@ antigen bundle command-not-found
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
+# Remember aliases...
+antigen bundle djui/alias-tips
+
 antigen theme bhilburn/powerlevel9k powerlevel9k
 antigen apply
 
