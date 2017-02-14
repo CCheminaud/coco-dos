@@ -92,6 +92,7 @@ antigen bundle git
 antigen bundle nvm
 antigen bundle npm
 antigen bundle bower
+antigen bundle gulp
 antigen bundle command-not-found
 
 # Syntax highlighting bundle
