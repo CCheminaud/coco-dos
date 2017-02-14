@@ -1,18 +1,17 @@
 #!/bin/bash
 
-if [ ! -d '~/.antigen' ]; then
+# install Antigen framework
+if [ ! -d ~/.antigen ]; then
     mkdir ~/.antigen
     curl https://cdn.rawgit.com/zsh-users/antigen/v1.4.0/bin/antigen.zsh > ~/.antigen/antigen.zsh
 fi
 
-if [ ! -d '~/.fonts' ]; then
-    mkdir ~/.fonts
-fi
-
-cp .fonts/* ~/.fonts/
+# install powerline patched font
+cp ./fonts/* ~/.local/share/fonts/
 fc-cache -fv
 
-if [ -f '~/.zshrc' ] || [ -L '~/.zshrc' ]; then
+# backup old .zshrc
+if [ -f ~/.zshrc ]; then
     mv ~/.zshrc ~/.zshrc.bck
 fi
 
