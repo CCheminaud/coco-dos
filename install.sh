@@ -7,8 +7,10 @@ if [ ! -d ~/.antigen ]; then
 fi
 
 # install powerline patched font
-cp ./fonts/* ~/.local/share/fonts/
-fc-cache -fv
+if [[ $EUID -ne 0 ]]; then
+    cp ./fonts/* ~/.local/share/fonts/
+    fc-cache -fv
+fi
 
 # backup old .zshrc
 if [ -f ~/.zshrc ]; then
