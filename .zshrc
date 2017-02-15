@@ -97,6 +97,8 @@ antigen bundle gulp
 
 antigen bundle debian
 
+antigen bundle z
+antigen bundle colored-man-pages
 antigen bundle command-not-found
 
 # Syntax highlighting bundle
