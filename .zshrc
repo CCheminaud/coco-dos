@@ -113,4 +113,17 @@ export TERM="xterm-256color"
 antigen theme bhilburn/powerlevel9k powerlevel9k
 antigen apply
 
+# Zsh syntax highlighting
+# see https://gist.github.com/valegrajales/fc980807bdacf0ec1b51
+ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=220,bold
+ZSH_HIGHLIGHT_STYLES[alias]=fg=220,bold
+ZSH_HIGHLIGHT_STYLES[function]=fg=220,bold
+ZSH_HIGHLIGHT_STYLES[builtin]=fg=220,bold
+ZSH_HIGHLIGHT_STYLES[command]=fg=220,bold
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=87
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=87
+ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=207
+ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=207
+ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=196,bold
+
 # end
