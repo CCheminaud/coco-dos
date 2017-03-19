@@ -121,10 +121,10 @@ ZSH_HIGHLIGHT_STYLES[alias]=fg=220,bold
 ZSH_HIGHLIGHT_STYLES[function]=fg=220,bold
 ZSH_HIGHLIGHT_STYLES[builtin]=fg=220,bold
 ZSH_HIGHLIGHT_STYLES[command]=fg=220,bold
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=87
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=87
-ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=207
-ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=207
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=213
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=213
+ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=75
+ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=75
 ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=196,bold
 
 # end
