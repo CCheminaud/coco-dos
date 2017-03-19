@@ -1,10 +1,15 @@
 #!/bin/bash
 
-# install Antigen framework
-if [ ! -d ~/.antigen ]; then
-    mkdir ~/.antigen
-    curl https://cdn.rawgit.com/zsh-users/antigen/v1.4.0/bin/antigen.zsh > ~/.antigen/antigen.zsh
+ANTIGEN_VERSION=1.4.1
+
+# remove old Antigen version
+if [ -d ~/.antigen ]; then
+    rm -rf ~/.antigen
 fi
+
+# install Antigen framework
+mkdir ~/.antigen
+curl "https://cdn.rawgit.com/zsh-users/antigen/v${ANTIGEN_VERSION}/bin/antigen.zsh" > ~/.antigen/antigen.zsh
 
 # install powerline patched font
 if [[ $EUID -ne 0 ]]; then
