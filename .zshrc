@@ -126,13 +126,13 @@ antigen apply
 
 # Zsh syntax highlighting
 # see https://gist.github.com/valegrajales/fc980807bdacf0ec1b51
-ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=220,bold
-ZSH_HIGHLIGHT_STYLES[alias]=fg=220,bold
-ZSH_HIGHLIGHT_STYLES[function]=fg=220,bold
-ZSH_HIGHLIGHT_STYLES[builtin]=fg=220,bold
-ZSH_HIGHLIGHT_STYLES[command]=fg=220,bold
-ZSH_HIGHLIGHT_STYLES[precommand]=fg=220,bold
-ZSH_HIGHLIGHT_STYLES[hashed-command]=fg=220,bold
+ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=6,bold
+ZSH_HIGHLIGHT_STYLES[alias]=fg=6,bold
+ZSH_HIGHLIGHT_STYLES[function]=fg=6,bold
+ZSH_HIGHLIGHT_STYLES[builtin]=fg=6,bold
+ZSH_HIGHLIGHT_STYLES[command]=fg=6,bold
+ZSH_HIGHLIGHT_STYLES[precommand]=fg=6,bold
+ZSH_HIGHLIGHT_STYLES[hashed-command]=fg=6,bold
 ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=14
 ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=14
 ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=11
