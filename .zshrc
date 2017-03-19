@@ -8,7 +8,7 @@ POWERLEVEL9K_MODE='awesome-patched'
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='\e[1D'
 POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX='%F{233}%K{233} %K{default} %F{default} '
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(background_jobs context dir dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status nvm_current time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status nvm_current command_execution_time time)
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
 # background jobs segment
@@ -16,7 +16,7 @@ POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='232'
 POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='14'
 
 # context segment
-POWERLEVEL9K_ALWAYS_SHOW_USER=true
+POWERLEVEL9K_CONTEXT_TEMPLATE="%n"
 POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='118'
 POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='232'
 POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND='196'
@@ -78,8 +78,13 @@ prompt_nvm_current() {
 # status segment
 POWERLEVEL9K_STATUS_OK_BACKGROUND='232'
 POWERLEVEL9K_STATUS_ERROR_FOREGROUND='196'
-POWERLEVEL9K_STATUS_ERROR_BACKGROUND='232'
+POWERLEVEL9K_STATUS_ERROR_BACKGROUND='52'
 POWERLEVEL9K_STATUS_VERBOSE=false
+
+# command execution time segment
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='232'
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='13'
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=1
 
 # time segment
 POWERLEVEL9K_TIME_BACKGROUND='234'
@@ -121,15 +126,17 @@ antigen apply
 
 # Zsh syntax highlighting
 # see https://gist.github.com/valegrajales/fc980807bdacf0ec1b51
-ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=2,bold
-ZSH_HIGHLIGHT_STYLES[alias]=fg=2,bold
-ZSH_HIGHLIGHT_STYLES[function]=fg=2,bold
-ZSH_HIGHLIGHT_STYLES[builtin]=fg=2,bold
-ZSH_HIGHLIGHT_STYLES[command]=fg=2,bold
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=11
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=11
-ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=14
-ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=14
+ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=220,bold
+ZSH_HIGHLIGHT_STYLES[alias]=fg=220,bold
+ZSH_HIGHLIGHT_STYLES[function]=fg=220,bold
+ZSH_HIGHLIGHT_STYLES[builtin]=fg=220,bold
+ZSH_HIGHLIGHT_STYLES[command]=fg=220,bold
+ZSH_HIGHLIGHT_STYLES[precommand]=fg=220,bold
+ZSH_HIGHLIGHT_STYLES[hashed-command]=fg=220,bold
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=14
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=14
+ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=11
+ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=11
 ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=1,bold
 
 # Clean remaining space after the right prompt
