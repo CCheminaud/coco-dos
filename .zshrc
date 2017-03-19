@@ -5,20 +5,26 @@
 # general
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MODE='awesome-patched'
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='\n\n\e[1D'
-POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX='%F{233}%K{233} %K{default} %F{default}'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(background_jobs context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(nvm_current time status)
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='\e[1D'
+POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX='%F{233}%K{233} %K{default} %F{default} '
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(background_jobs context dir dir_writable vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status nvm_current time)
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
 # background jobs segment
-POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='14'
-POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='232'
+POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='232'
+POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='14'
 
 # context segment
-POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='232'
-POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='118'
+DEFAULT_USER="$USER"
+POWERLEVEL9K_ALWAYS_SHOW_USER=true
+POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='118'
+POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='232'
 POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND='196'
 POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND='232'
+
+# dir writable segment
+POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="015"
 
 # dir segment
 POWERLEVEL9K_DIR_HOME_BACKGROUND='233'
@@ -43,7 +49,7 @@ POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='232'
 POWERLEVEL9K_VCS_GIT_ICON=''
 
 # nvm current segment
-POWERLEVEL9K_NVM_CURRENT_OK_BACKGROUND='226'
+POWERLEVEL9K_NVM_CURRENT_OK_BACKGROUND='118'
 POWERLEVEL9K_NVM_CURRENT_OK_FOREGROUND='232'
 POWERLEVEL9K_NVM_CURRENT_WARNING_BACKGROUND='196'
 POWERLEVEL9K_NVM_CURRENT_WARNING_FOREGROUND='232'
@@ -85,19 +91,16 @@ POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S} \ue12e"
 
 source ~/.antigen/antigen.zsh
 
-# Load the oh-my-zsh's library.
+# Load the oh-my-zsh's library
 antigen use oh-my-zsh
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
+# Bundles from the default repo (robbyrussell's oh-my-zsh)
 antigen bundle git
-
 antigen bundle nvm
 antigen bundle npm
 antigen bundle bower
 antigen bundle gulp
-
 antigen bundle debian
-
 antigen bundle z
 antigen bundle colored-man-pages
 antigen bundle command-not-found
@@ -109,6 +112,9 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # Remember aliases...
 antigen bundle djui/alias-tips
 
+# Auto updating
+antigen bundle unixorn/autoupdate-antigen.zshplugin
+
 # Theme
 export TERM="xterm-256color"
 antigen theme bhilburn/powerlevel9k powerlevel9k
@@ -116,15 +122,18 @@ antigen apply
 
 # Zsh syntax highlighting
 # see https://gist.github.com/valegrajales/fc980807bdacf0ec1b51
-ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=220,bold
-ZSH_HIGHLIGHT_STYLES[alias]=fg=220,bold
-ZSH_HIGHLIGHT_STYLES[function]=fg=220,bold
-ZSH_HIGHLIGHT_STYLES[builtin]=fg=220,bold
-ZSH_HIGHLIGHT_STYLES[command]=fg=220,bold
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=213
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=213
-ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=75
-ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=75
-ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=196,bold
+ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=2,bold
+ZSH_HIGHLIGHT_STYLES[alias]=fg=2,bold
+ZSH_HIGHLIGHT_STYLES[function]=fg=2,bold
+ZSH_HIGHLIGHT_STYLES[builtin]=fg=2,bold
+ZSH_HIGHLIGHT_STYLES[command]=fg=2,bold
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=11
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=11
+ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=14
+ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=14
+ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=1,bold
+
+# Clean remaining space after the right prompt
+ZLE_RPROMPT_INDENT=0
 
 # end
