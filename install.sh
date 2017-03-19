@@ -12,10 +12,10 @@ mkdir ~/.antigen
 curl "https://cdn.rawgit.com/zsh-users/antigen/v${ANTIGEN_VERSION}/bin/antigen.zsh" > ~/.antigen/antigen.zsh
 
 # install powerline patched font
-if [[ $EUID -ne 0 ]]; then
-    cp ./fonts/* ~/.local/share/fonts/
-    fc-cache -fv
-fi
+# if [[ $EUID -ne 0 ]]; then
+#     cp ./fonts/* ~/.local/share/fonts/
+#     fc-cache -fv
+# fi
 
 # backup old .zshrc
 if [ -f ~/.zshrc ]; then
