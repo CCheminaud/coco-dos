@@ -6,7 +6,7 @@
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MODE='awesome-patched'
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='\e[1D'
-POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX='%F{233}%K{233} %K{default} %F{default} '
+POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX='%F{233}%K{233} %K{default} %F{default}'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(background_jobs context dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status nvm_current command_execution_time time)
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
@@ -138,8 +138,5 @@ ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=14
 ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=11
 ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=11
 ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=1,bold
-
-# Clean remaining space after the right prompt
-ZLE_RPROMPT_INDENT=0
 
 # end
