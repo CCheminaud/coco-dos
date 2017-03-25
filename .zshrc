@@ -101,7 +101,7 @@ antigen bundle unixorn/autoupdate-antigen.zshplugin
 
 # Theme
 export TERM="xterm-256color"
-antigen theme CCheminaud/powerlevel9k --branch=v0.6.2c1 powerlevel9k
+antigen theme CCheminaud/powerlevel9k --branch=v0.6.2c2 powerlevel9k
 antigen apply
 
 # Zsh syntax highlighting
