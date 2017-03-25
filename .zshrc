@@ -8,7 +8,7 @@ POWERLEVEL9K_MODE='awesome-patched'
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='\e[1D'
 POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX='%F{233}%K{233} %K{default} %F{default}'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(background_jobs context dir dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status nvm_current command_execution_time time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status nvm_checker command_execution_time time)
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
 # background jobs segment
@@ -54,26 +54,6 @@ POWERLEVEL9K_NVM_CURRENT_WARNING_BACKGROUND='196'
 POWERLEVEL9K_NVM_CURRENT_WARNING_FOREGROUND='232'
 POWERLEVEL9K_NVM_CURRENT_WARNING_ICON='✖'
 POWERLEVEL9K_NVM_CURRENT_ICON='⬢'
-
-prompt_nvm_current() {
-    local nvm_current_prompt=''
-    current_state=''
-
-    if [[ -f ".nvmrc" ]]; then
-        local nvm_current_version="$(nvm_prompt_info)"
-        local nvm_file_version=`cat .nvmrc`
-
-        if [[ "$nvm_current_version" == "$nvm_file_version" ]]; then
-            current_state='ok'
-            nvm_current_prompt="$nvm_current_version"
-        else
-            current_state='warning'
-            nvm_current_prompt="$POWERLEVEL9K_NVM_CURRENT_WARNING_ICON $nvm_current_version"
-        fi
-
-        "$1_prompt_segment" "${0}_${(U)current_state}" "$2" "$DEFAULT_COLOR" "$DEFAULT_COLOR" "$nvm_current_prompt" 'NVM_CURRENT_ICON'
-    fi
-}
 
 # status segment
 POWERLEVEL9K_STATUS_OK_BACKGROUND='232'
@@ -121,7 +101,7 @@ antigen bundle unixorn/autoupdate-antigen.zshplugin
 
 # Theme
 export TERM="xterm-256color"
-antigen theme bhilburn/powerlevel9k powerlevel9k
+antigen theme CCheminaud/powerlevel9k --branch=v0.6.2c1 powerlevel9k
 antigen apply
 
 # Zsh syntax highlighting
