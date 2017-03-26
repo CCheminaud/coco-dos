@@ -105,9 +105,6 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # Remember aliases...
 antigen bundle djui/alias-tips
 
-# Auto updating
-antigen bundle unixorn/autoupdate-antigen.zshplugin
-
 # Theme
 export TERM="xterm-256color"
 antigen theme CCheminaud/powerlevel9k --branch=v0.6.2c2 powerlevel9k
