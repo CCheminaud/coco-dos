@@ -41,27 +41,17 @@ POWERLEVEL9K_FOLDER_ICON=' '
 # vcs git segment
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND='082'
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND='232'
-POWERLEVEL9K_VCS_CLEAN_AGAIN_BACKGROUND='022'
-POWERLEVEL9K_VCS_CLEAN_AGAIN_FOREGROUND='232'
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='196'
 POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='232'
-POWERLEVEL9K_VCS_UNTRACKED_AGAIN_BACKGROUND='052'
-POWERLEVEL9K_VCS_UNTRACKED_AGAIN_FOREGROUND='232'
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='226'
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='232'
-POWERLEVEL9K_VCS_MODIFIED_AGAIN_BACKGROUND='058'
-POWERLEVEL9K_VCS_MODIFIED_AGAIN_FOREGROUND='232'
 POWERLEVEL9K_VCS_GIT_ICON=''
 
 # nvm checker segment
 POWERLEVEL9K_NVM_CHECKER_OK_BACKGROUND='082'
 POWERLEVEL9K_NVM_CHECKER_OK_FOREGROUND='232'
-POWERLEVEL9K_NVM_CHECKER_OK_AGAIN_BACKGROUND='022'
-POWERLEVEL9K_NVM_CHECKER_OK_AGAIN_FOREGROUND='232'
 POWERLEVEL9K_NVM_CHECKER_WARNING_BACKGROUND='196'
 POWERLEVEL9K_NVM_CHECKER_WARNING_FOREGROUND='232'
-POWERLEVEL9K_NVM_CHECKER_WARNING_AGAIN_BACKGROUND='052'
-POWERLEVEL9K_NVM_CHECKER_WARNING_AGAIN_FOREGROUND='232'
 POWERLEVEL9K_NVM_CHECKER_WARNING_ICON='✖'
 POWERLEVEL9K_NVM_CHECKER_ICON='⬢'
 
@@ -79,6 +69,43 @@ POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=1
 POWERLEVEL9K_TIME_BACKGROUND='234'
 POWERLEVEL9K_TIME_FOREGROUND='254'
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S} \ue12e"
+
+# Custom nvm checker segment
+# Display the segment only if .nvmrc exists and compare the required version to the current version
+prompt_nvm_checker() {
+  [[ ! $(type nvm) =~ 'nvm is a shell function'* ]] && return
+
+  local node_version=$(nvm current)
+  node_version=${node_version:1}
+  [[ -z "${node_version}" ]] || [[ ${node_version} = "none" ]] && return
+
+  typeset -AH nvm_checker_states
+  nvm_checker_states=(
+    "OK"            "yellow"
+    "WARNING"       "red"
+  )
+
+  local content=''
+  local current_state=''
+
+  if [[ -f ".nvmrc" ]]; then
+    local node_version_required=$(cat .nvmrc)
+
+    if [[ "${node_version_required:0:1}" = "v" ]]; then
+        node_version_required=${node_version_required:1}
+    fi
+
+    if [[ "$node_version_required" == "$node_version" ]]; then
+        current_state='OK'
+        content="$node_version"
+    else
+        current_state='WARNING'
+        content="$node_version"
+    fi
+
+    "$1_prompt_segment" "${0}_${current_state}" "$2" "${nvm_checker_states[$current_state]}" "$DEFAULT_COLOR" "${content}" 'NVM_CHECKER_ICON'
+  fi
+}
 
 # -- Antigen ----------------------------------------------------------------- #
 
@@ -109,7 +136,7 @@ antigen bundle djui/alias-tips
 
 # Theme
 export TERM="xterm-256color"
-antigen theme CCheminaud/powerlevel9k --branch=v0.6.2c2 powerlevel9k
+antigen theme bhilburn/powerlevel9k powerlevel9k
 antigen apply
 
 # Zsh syntax highlighting
