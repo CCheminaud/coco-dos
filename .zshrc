@@ -93,6 +93,8 @@ antigen bundle nvm
 antigen bundle npm
 antigen bundle bower
 antigen bundle gulp
+antigen bundle docker
+antigen bundle docker-compose
 antigen bundle debian
 antigen bundle z
 antigen bundle colored-man-pages
