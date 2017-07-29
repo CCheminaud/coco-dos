@@ -127,4 +127,7 @@ ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=51
 ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=51
 ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=196,bold
 
+# disable history sharing between each terminal session
+unsetopt share_history
+
 # end
