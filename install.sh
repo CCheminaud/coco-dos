@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ANTIGEN_VERSION=1.4.1
+ANTIGEN_VERSION=2.2.1
 
 # remove old Antigen version
 if [ -d ~/.antigen ]; then
