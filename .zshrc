@@ -119,6 +119,7 @@ antigen bundle git
 antigen bundle nvm
 antigen bundle npm
 antigen bundle bower
+antigen bundle yarn
 antigen bundle gulp
 antigen bundle docker
 antigen bundle docker-compose
