@@ -163,4 +163,8 @@ ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=196,bold
 # disable history sharing between each terminal session
 unsetopt share_history
 
+# -- Aliases ----------------------------------------------------------------- #
+
+alias dclf="docker-compose logs --tail=\"500\" -f"
+
 # end
